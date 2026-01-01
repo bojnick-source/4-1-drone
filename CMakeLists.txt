@@ -18,6 +18,14 @@ add_library(lift_engine
   # Core
   cpp/engine/core/logging.cpp
   cpp/engine/core/hashing.cpp
+  cpp/engine/core/cache_key.cpp
+  cpp/engine/core/design_hash.cpp
+  # Physics
+  cpp/engine/physics/disk_area.cpp
+  cpp/engine/physics/hover_momentum.cpp
+  # Analysis
+  cpp/engine/analysis/closeout_eval.cpp
+  cpp/engine/analysis/closeout_json.cpp
 )
 
 target_include_directories(lift_engine PUBLIC
@@ -30,3 +38,10 @@ add_executable(lift_cli
 )
 
 target_link_libraries(lift_cli PRIVATE lift_engine)
+
+# ---- CLI: closeout_demo (Fragment 2.5 harness) ----
+add_executable(closeout_demo
+  cpp/cli/closeout_demo.cpp
+)
+
+target_link_libraries(closeout_demo PRIVATE lift_engine)
