@@ -31,13 +31,18 @@ static inline double nan_sum(double a, double b) {
   return a + b;
 }
 
-void finalize_mass_delta(MassDeltaBreakdown& md, const CloseoutEvalOptions& opt) {
-  // Sum items deterministically.
-  double total = 0.0;
+void finalize_mass_delta(MassDeltaBreakdown& md, const CloseoutEvalOptions& // Sum items deterministically.
+// Sum items deterministically.
+double total = 0.0;
+
+if (md.items.empty()) {
+  md.delta_mass_total_kg = kUnset;
+} else {
   for (const auto& it : md.items) {
     total += it.delta_mass_kg;
   }
   md.delta_mass_total_kg = total;
+}
 
   // Resulting aircraft mass if baseline exists.
   if (is_set(md.baseline_aircraft_mass_kg)) {
