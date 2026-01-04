@@ -1,1 +1,0 @@
-/usr/bin/c++ -Wl,--dependency-file=CMakeFiles/closeout_cli.dir/link.d CMakeFiles/closeout_cli.dir/cpp/tools/closeout_cli.cpp.o -o closeout_cli  liblift_engine.a
