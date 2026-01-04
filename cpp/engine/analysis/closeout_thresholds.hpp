@@ -4,7 +4,8 @@
 // File: cpp/engine/analysis/closeout_thresholds.hpp
 // ============================================================================
 
-#include "engine/analysis/closeset_types.hpp"
+#include "engine/analysis/closeout_types.hpp"
+#include "engine/core/errors.hpp"
 #include <string>
 
 namespace lift::analysis {

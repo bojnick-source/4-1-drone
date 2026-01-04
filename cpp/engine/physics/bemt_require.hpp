@@ -5,26 +5,32 @@
 // ============================================================================
 
 #include "engine/core/errors.hpp"
-#include "engine/analysis/closeset_types.hpp"
 
+#include <cstdint>
 #include <string>
 #include <stdexcept>
 
 namespace lift::bemt {
 
+// ErrorCode enum for BEMT exceptions
+enum class ErrorCode : uint16_t {
+    None = 0,
+    InvalidInput = 100,
+    MissingRequiredField = 101,
+    IoError = 200,
+    ComputationError = 300,
+};
+
 // BEMT-specific exception that wraps lift::LiftError
 class BemtException : public lift::LiftError {
 public:
-    BemtException(lift::ErrorCode code, std::string msg)
+    BemtException(ErrorCode code, std::string msg)
         : lift::LiftError(std::move(msg)), error_code_(code) {}
     
-    lift::ErrorCode error_code() const { return error_code_; }
+    ErrorCode error_code() const { return error_code_; }
     
 private:
-    lift::ErrorCode error_code_;
+    ErrorCode error_code_;
 };
-
-// Alias ErrorCode from closeset_types for convenience
-using ErrorCode = lift::ErrorCode;
 
 } // namespace lift::bemt

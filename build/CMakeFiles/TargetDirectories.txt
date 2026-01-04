@@ -1,0 +1,6 @@
+/home/runner/work/4-1-drone/4-1-drone/build/CMakeFiles/lift_engine.dir
+/home/runner/work/4-1-drone/4-1-drone/build/CMakeFiles/lift_cli.dir
+/home/runner/work/4-1-drone/4-1-drone/build/CMakeFiles/closeout_demo.dir
+/home/runner/work/4-1-drone/4-1-drone/build/CMakeFiles/closeout_cli.dir
+/home/runner/work/4-1-drone/4-1-drone/build/CMakeFiles/edit_cache.dir
+/home/runner/work/4-1-drone/4-1-drone/build/CMakeFiles/rebuild_cache.dir

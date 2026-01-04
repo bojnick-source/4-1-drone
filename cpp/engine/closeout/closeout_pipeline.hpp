@@ -6,7 +6,6 @@
 
 #include "engine/analysis/closeout_types.hpp"
 #include "engine/analysis/closeout_thresholds.hpp"
-#include "engine/analysis/closeset_types.hpp"
 
 #include <string>
 #include <vector>
@@ -34,9 +33,8 @@ struct GateCheck {
 // Complete closeout output
 struct CloseoutOutput {
     std::vector<EvidenceItem> evidence;
-    lift::GateResult gate;
     
-    // Additional gate check details for CSV export
+    // Gate check details for CSV export
     struct {
         std::vector<GateCheck> checks;
     } gate;
