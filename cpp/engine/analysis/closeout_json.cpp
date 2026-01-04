@@ -14,10 +14,6 @@ FILE: cpp/engine/analysis/closeout_json.cpp
 
 namespace lift {
 
-static inline bool is_set(double x) {
-  return std::isfinite(x);
-}
-
 static std::string json_escape(const std::string& s) {
   std::ostringstream o;
   o << '"';
@@ -280,7 +276,7 @@ std::string closeout_to_json(const CloseoutReport& r, int indent_spaces) {
 
   j.obj_begin(); j.nl();
 
-  j.key("concept"); j.str(concept_name(r.concept)); j.comma(); j.nl();
+  j.key("concept"); j.str(concept_name(r.variant_concept)); j.comma(); j.nl();
   j.key("variant_name"); j.str(r.variant_name); j.comma(); j.nl();
   j.key("geom_hash"); j.str(r.geom_hash); j.comma(); j.nl();
   j.key("eval_hash"); j.str(r.eval_hash); j.comma(); j.nl();
