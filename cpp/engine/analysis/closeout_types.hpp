@@ -228,7 +228,7 @@ struct GateResult {
 
 struct CloseoutReport {
   // Identification
-  VariantConcept concept = VariantConcept::Unknown;
+  VariantConcept variant_concept = VariantConcept::Unknown;
   std::string variant_name;   // e.g. "D6 baseline", "D6 + pusher", etc.
   std::string geom_hash;      // optional: geometry hash for traceability
   std::string eval_hash;      // optional: evaluation hash for traceability
