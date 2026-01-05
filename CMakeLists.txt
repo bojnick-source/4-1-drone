@@ -32,13 +32,6 @@ target_include_directories(lift_engine PUBLIC
   ${CMAKE_CURRENT_SOURCE_DIR}/cpp
 )
 
-# ---- CLI: lift_cli (optional harness) ----
-add_executable(lift_cli
-  cpp/cli/main.cpp
-)
-
-target_link_libraries(lift_cli PRIVATE lift_engine)
-
 # ---- CLI: closeout_demo (Fragment 2.5 harness) ----
 add_executable(closeout_demo
   cpp/cli/closeout_demo.cpp
