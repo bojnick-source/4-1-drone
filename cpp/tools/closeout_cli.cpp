@@ -173,5 +173,8 @@ int main(int argc, char** argv) {
     } catch (const std::exception& e) {
         std::cerr << "closeout_cli fatal: " << e.what() << "\n";
         return 3;
+    } catch (...) {
+        std::cerr << "closeout_cli fatal: unknown exception\n";
+        return 3;
     }
 }

@@ -58,10 +58,16 @@ void write_uncertainty_quantiles_csv(std::ostream& os, const BemtUncertaintyRepo
         // If you later store explicit q-probs, update this to emit exact q values.
         const std::vector<double> default_q = {0.01,0.05,0.10,0.50,0.90,0.95,0.99};
         const auto& qvals = s.q;
+        
+        // Skip if no quantile values
+        if (qvals.empty()) {
+            continue;
+        }
+        
         const bool use_default = (qvals.size() == default_q.size());
 
         for (std::size_t i = 0; i < qvals.size(); ++i) {
-            const double q = use_default ? default_q[i] : (static_cast<double>(i) / std::max<std::size_t>(1, qvals.size() - 1));
+            const double q = use_default ? default_q[i] : (static_cast<double>(i) / static_cast<double>(qvals.size() - 1));
             os << csv_escape(s.metric_key) << ","
                << std::to_string(q) << ","
                << std::to_string(qvals[i]) << "\n";
