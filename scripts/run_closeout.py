@@ -55,12 +55,6 @@ def parse_args():
         help='Path to JSON output'
     )
     parser.add_argument(
-        '--csv-path',
-        type=str,
-        default='closeout.csv',
-        help='Path to CSV output (not yet implemented)'
-    )
-    parser.add_argument(
         '--verbose',
         action='store_true',
         help='Enable verbose output'

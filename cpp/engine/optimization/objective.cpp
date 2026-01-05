@@ -39,6 +39,8 @@ ObjectiveResult evaluate_objective(const Design& d,
   
   // Constraint 2: Minimum payload ratio
   if (payload_ratio < obj_opt.min_payload_ratio) {
+    double deficit = obj_opt.min_payload_ratio - payload_ratio;
+    res.mass_penalty += -obj_opt.mass_penalty_coeff * deficit * 10.0;  // Scale up for payload ratio
     res.is_feasible = false;
   }
   
@@ -63,12 +65,12 @@ ObjectiveResult evaluate_objective(const Design& d,
   
   if (disk_loading > obj_opt.max_disk_loading_N_m2) {
     double excess = disk_loading - obj_opt.max_disk_loading_N_m2;
-    res.disk_loading_penalty = -obj_opt.disk_loading_penalty_coeff * (excess / 100.0);
+    res.disk_loading_penalty += -obj_opt.disk_loading_penalty_coeff * (excess / 100.0);
   }
   
   if (disk_loading < obj_opt.min_disk_loading_N_m2) {
     double deficit = obj_opt.min_disk_loading_N_m2 - disk_loading;
-    res.disk_loading_penalty = -obj_opt.disk_loading_penalty_coeff * (deficit / 100.0);
+    res.disk_loading_penalty += -obj_opt.disk_loading_penalty_coeff * (deficit / 100.0);
   }
   
   // Constraint 5: Power feasibility (simple check)

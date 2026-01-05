@@ -122,14 +122,17 @@ std::vector<Design> generate_candidates(const DesignSpaceBounds& bounds,
   candidates.reserve(options.count);
   
   uint64_t seed = options.seed;
+  int attempts = 0;
+  const int max_attempts = options.count * 10;  // Limit attempts to avoid infinite loops
   
-  for (int i = 0; i < options.count; ++i) {
-    Design d = generate_random_candidate(bounds, seed + static_cast<uint64_t>(i));
+  while (static_cast<int>(candidates.size()) < options.count && attempts < max_attempts) {
+    Design d = generate_random_candidate(bounds, seed + static_cast<uint64_t>(attempts));
     
     // Apply constraints filter
     if (options.apply_constraints) {
       if (!satisfies_basic_constraints(d)) {
-        // Skip infeasible candidate, try again with new seed
+        // Skip infeasible candidate, increment attempt counter
+        attempts++;
         continue;
       }
     }
@@ -139,12 +142,14 @@ std::vector<Design> generate_candidates(const DesignSpaceBounds& bounds,
       try {
         d.validate_or_throw();
       } catch (const ValidationError&) {
-        // Skip invalid candidate
+        // Skip invalid candidate, increment attempt counter
+        attempts++;
         continue;
       }
     }
     
     candidates.push_back(d);
+    attempts++;
   }
   
   return candidates;
