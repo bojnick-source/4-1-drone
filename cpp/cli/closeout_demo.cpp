@@ -62,7 +62,7 @@ int main(int argc, char** argv) {
   // -------------------------
   // Identity
   // -------------------------
-  r.concept = lift::VariantConcept::Quad_With_SFCS;
+  r.variant_concept = lift::VariantConcept::Quad_With_SFCS;
   r.variant_name = "D6_baseline_like_demo";
   r.geom_hash = "demo_geom_hash_placeholder";
   r.eval_hash = "demo_eval_hash_placeholder";
