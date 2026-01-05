@@ -23,9 +23,15 @@ add_library(lift_engine
   # Physics
   cpp/engine/physics/disk_area.cpp
   cpp/engine/physics/hover_momentum.cpp
+  cpp/engine/physics/cfd_results.cpp
   # Analysis
   cpp/engine/analysis/closeout_eval.cpp
   cpp/engine/analysis/closeout_json.cpp
+  # Exports
+  cpp/engine/exports/stats_report_csv.cpp
+  # Optimization
+  cpp/engine/optimization/candidate_generator.cpp
+  cpp/engine/optimization/objective.cpp
 )
 
 target_include_directories(lift_engine PUBLIC
@@ -45,3 +51,10 @@ add_executable(closeout_demo
 )
 
 target_link_libraries(closeout_demo PRIVATE lift_engine)
+
+# ---- CLI: optimizer_demo (Candidate generation & scoring demo) ----
+add_executable(optimizer_demo
+  cpp/cli/optimizer_demo.cpp
+)
+
+target_link_libraries(optimizer_demo PRIVATE lift_engine)
