@@ -1,0 +1,31 @@
+# Build artifacts
+build/
+cmake-build-*/
+*.o
+*.a
+*.so
+*.dylib
+*.dll
+
+# v2 run outputs and artifacts
+v2/engine/output/
+v2/engine/runs/
+v2/engine/cache/
+v2/studio/output/
+v2/studio/runs/
+*.v2run
+*.v2cache
+
+# IDE and editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Qt generated files
+*.qm
+*.autosave
+moc_*.cpp
+ui_*.h
+qrc_*.cpp

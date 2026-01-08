@@ -45,3 +45,7 @@ add_executable(closeout_demo
 )
 
 target_link_libraries(closeout_demo PRIVATE lift_engine)
+
+# ---- v2 targets (independent of v1) ----
+add_subdirectory(v2/engine)
+add_subdirectory(v2/studio)
