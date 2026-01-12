@@ -39,6 +39,10 @@ namespace lift {
 // Sentinel for "unset" numeric values (NaN by default).
 inline constexpr double kUnset = std::numeric_limits<double>::quiet_NaN();
 
+inline bool is_set(double v) {
+  return !std::isnan(v);
+}
+
 enum class VariantConcept : int {
   Unknown = 0,
   Quad_OpenRotor,
@@ -228,7 +232,7 @@ struct GateResult {
 
 struct CloseoutReport {
   // Identification
-  VariantConcept concept = VariantConcept::Unknown;
+  VariantConcept variant_concept = VariantConcept::Unknown;
   std::string variant_name;   // e.g. "D6 baseline", "D6 + pusher", etc.
   std::string geom_hash;      // optional: geometry hash for traceability
   std::string eval_hash;      // optional: evaluation hash for traceability
