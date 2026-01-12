@@ -42,7 +42,7 @@ void finalize_mass_delta(MassDeltaBreakdown& md, const CloseoutEvalOptions& opt)
 
   // Resulting aircraft mass if baseline exists.
   if (is_set(md.baseline_aircraft_mass_kg)) {
-    md.resulting_aircraft_mass_kg = md.baseline_aircraft_mass_kg + total;
+    md.resulting_aircraft_mass_kg = md.baseline_aircraft_mass_kg + md.delta_mass_total_kg;
   } else {
     md.resulting_aircraft_mass_kg = kUnset;
   }
