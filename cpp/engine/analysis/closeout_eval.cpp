@@ -21,10 +21,6 @@ static inline void add_fail(std::vector<std::string>& v, const std::string& s) {
   v.push_back(s);
 }
 
-bool is_set(double x) {
-  return !std::isnan(x) && std::isfinite(x);
-}
-
 static inline double nan_sum(double a, double b) {
   if (!is_set(a)) return b;
   if (!is_set(b)) return a;
@@ -35,14 +31,14 @@ void finalize_mass_delta(MassDeltaBreakdown& md, const CloseoutEvalOptions& opt)
   // Sum items deterministically.
   double total = 0.0;
 
-if (md.items.empty()) {
-  md.delta_mass_total_kg = kUnset;
-} else {
-  for (const auto& it : md.items) {
-    total += it.delta_mass_kg;
+  if (md.items.empty()) {
+    md.delta_mass_total_kg = kUnset;
+  } else {
+    for (const auto& it : md.items) {
+      total += it.delta_mass_kg;
+    }
+    md.delta_mass_total_kg = total;
   }
-  md.delta_mass_total_kg = total;
-}
 
   // Resulting aircraft mass if baseline exists.
   if (is_set(md.baseline_aircraft_mass_kg)) {

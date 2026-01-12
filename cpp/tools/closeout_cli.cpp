@@ -46,6 +46,7 @@ static Args parse_args_or_throw(int argc, char** argv) {
     auto require_value = [&](int& i, const char* flag) -> std::string {
         if (i + 1 >= argc) {
             throw lift::bemt::BemtException(lift::bemt::ErrorCode::InvalidInput,
+            throw lift::bemt::BemtException(lift::bemt::ErrorCode::MissingRequiredField,
                                             std::string("Missing value for ") + flag);
         }
         ++i;
@@ -77,6 +78,7 @@ static Args parse_args_or_throw(int argc, char** argv) {
         }
 
         throw lift::bemt::BemtException(lift::bemt::ErrorCode::InvalidInput,
+        throw lift::bemt::BemtException(lift::bemt::ErrorCode::MissingRequiredField,
                                         std::string("Unknown arg: ") + s);
     }
 
@@ -107,6 +109,7 @@ static std::ofstream open_out_or_throw(const std::string& path) {
     std::ofstream f(path, std::ios::out | std::ios::trunc);
     if (!f.is_open()) {
         throw lift::bemt::BemtException(lift::bemt::ErrorCode::IoError,
+        throw lift::bemt::BemtException(lift::bemt::ErrorCode::MissingRequiredField,
                                         std::string("Failed to open output: ") + path);
     }
     return f;

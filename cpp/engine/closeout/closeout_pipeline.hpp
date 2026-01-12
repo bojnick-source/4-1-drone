@@ -15,6 +15,7 @@
 
 namespace lift::closeout {
 
+// Evidence item - a key-value pair with metadata
 struct EvidenceItem {
     std::string key;
     std::string value;
@@ -23,30 +24,47 @@ struct EvidenceItem {
     std::string notes;
 };
 
+// Gate check result
 struct GateCheck {
     std::string id;
     bool pass = false;
-    double value = 0.0;
-    double threshold = 0.0;
+    double value = kUnset;
+    double threshold = kUnset;
     std::string note;
 };
 
-struct GateResults {
-    std::vector<GateCheck> checks;
-};
-
-struct CloseoutInput {
-    // Placeholder for future input parameters
-    void validate() const {}
-};
-
+// Complete closeout output
 struct CloseoutOutput {
     std::vector<EvidenceItem> evidence;
-    GateResults gate;
-
+    
+    // Gate check details for CSV export
+    struct {
+        std::vector<GateCheck> checks;
+    } gate;
+    
     void validate() const {
         // Placeholder validation
     }
 };
+
+// Input configuration for closeout pipeline
+struct CloseoutInput {
+    // Design/candidate identification
+    std::string design_id;
+    
+    // Thresholds to apply
+    lift::analysis::CloseoutThresholds thresholds;
+    
+    // Additional configuration as needed
+    std::string notes;
+};
+
+// Main pipeline function (currently a stub)
+inline CloseoutOutput run_closeout_pipeline(const CloseoutInput& input) {
+    CloseoutOutput out;
+    // Stub implementation - will be filled in later milestones
+    out.validate();
+    return out;
+}
 
 } // namespace lift::closeout

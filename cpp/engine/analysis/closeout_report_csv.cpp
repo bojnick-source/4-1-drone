@@ -4,6 +4,7 @@
 // ============================================================================
 
 #include "engine/analysis/closeout_report_csv.hpp"
+#include "engine/closeout/closeout_pipeline.hpp"
 
 #include <ostream>
 #include <string>

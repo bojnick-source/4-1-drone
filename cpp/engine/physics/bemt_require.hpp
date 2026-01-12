@@ -17,22 +17,25 @@
 
 namespace lift::bemt {
 
-enum class ErrorCode {
-    InvalidInput,
-    NumericalFailure,
-    IoError,
-    ValidationFailure
+// ErrorCode enum for BEMT exceptions
+enum class ErrorCode : uint16_t {
+    None = 0,
+    InvalidInput = 100,
+    MissingRequiredField = 101,
+    IoError = 200,
+    ComputationError = 300,
 };
 
+// BEMT-specific exception that wraps lift::LiftError
 class BemtException : public lift::LiftError {
 public:
     BemtException(ErrorCode code, std::string msg)
-        : LiftError(std::move(msg)), code_(code) {}
-
-    ErrorCode code() const { return code_; }
-
+        : lift::LiftError(std::move(msg)), error_code_(code) {}
+    
+    ErrorCode error_code() const { return error_code_; }
+    
 private:
-    ErrorCode code_;
+    ErrorCode error_code_;
 };
 
 } // namespace lift::bemt

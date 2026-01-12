@@ -9,20 +9,20 @@ _codeql_detected_source_root
 *.dll
 *.exe
 
-# CMake
+# CMake artifacts
 CMakeCache.txt
 CMakeFiles/
 cmake_install.cmake
 Makefile
 
-# IDEs
+# IDE and editor files
 .vscode/
 .idea/
 *.swp
 *.swo
 *~
 
-# Python
+# Python artifacts
 __pycache__/
 *.py[cod]
 *$py.class
@@ -32,3 +32,8 @@ dist/
 # Outputs
 *.json
 *.csv
+.eggs/
+
+# Temporary files
+*.tmp
+/tmp/
