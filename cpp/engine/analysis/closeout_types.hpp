@@ -39,6 +39,10 @@ namespace lift {
 // Sentinel for "unset" numeric values (NaN by default).
 inline constexpr double kUnset = std::numeric_limits<double>::quiet_NaN();
 
+inline bool is_set(double v) {
+  return !std::isnan(v);
+}
+
 enum class VariantConcept : int {
   Unknown = 0,
   Quad_OpenRotor,

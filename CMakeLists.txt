@@ -23,14 +23,24 @@ add_library(lift_engine
   # Physics
   cpp/engine/physics/disk_area.cpp
   cpp/engine/physics/hover_momentum.cpp
+  cpp/engine/physics/cfd_results.cpp
+  cpp/engine/physics/stats_report_csv.cpp
   # Analysis
   cpp/engine/analysis/closeout_eval.cpp
   cpp/engine/analysis/closeout_json.cpp
+  cpp/engine/analysis/closeout_report_csv.cpp
 )
 
 target_include_directories(lift_engine PUBLIC
   ${CMAKE_CURRENT_SOURCE_DIR}/cpp
 )
+
+# ---- CLI: closeout_cli (Fragment 1.4.28 tool) ----
+add_executable(closeout_cli
+  cpp/tools/closeout_cli.cpp
+)
+
+target_link_libraries(closeout_cli PRIVATE lift_engine)
 
 # ---- CLI: closeout_demo (Fragment 2.5 harness) ----
 add_executable(closeout_demo
@@ -38,3 +48,10 @@ add_executable(closeout_demo
 )
 
 target_link_libraries(closeout_demo PRIVATE lift_engine)
+
+# ---- CLI: closeout_cli (Closeout tool with CSV outputs) ----
+add_executable(closeout_cli
+  cpp/tools/closeout_cli.cpp
+)
+
+target_link_libraries(closeout_cli PRIVATE lift_engine)
