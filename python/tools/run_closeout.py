@@ -24,6 +24,11 @@ from typing import List, Optional
 
 def _find_closeout_cli(explicit: Optional[str]) -> str:
     if explicit:
+        # Validate explicit path exists and is executable
+        if not os.path.isfile(explicit):
+            raise FileNotFoundError(f"Specified binary does not exist: {explicit}")
+        if not os.access(explicit, os.X_OK):
+            raise PermissionError(f"Specified binary is not executable: {explicit}")
         return explicit
 
     # 1) PATH
@@ -39,7 +44,7 @@ def _find_closeout_cli(explicit: Optional[str]) -> str:
     ]
     for c in candidates:
         if os.path.isfile(c) and os.access(c, os.X_OK):
-            return c
+            return os.path.abspath(c)
 
     raise FileNotFoundError(
         "Could not locate closeout_cli. Provide --bin PATH or ensure it is on PATH."

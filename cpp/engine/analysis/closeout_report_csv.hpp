@@ -1,7 +1,13 @@
 #pragma once
 // ============================================================================
-// Closeout Report CSV - CSV output helpers
+// Closeout Report CSV Writers
 // File: cpp/engine/analysis/closeout_report_csv.hpp
+// ============================================================================
+//
+// Purpose:
+// - Serialize closeout evidence and gate results to CSV format.
+// - Used by closeout_cli tool to write output files.
+//
 // ============================================================================
 
 #include "engine/closeout/closeout_pipeline.hpp"

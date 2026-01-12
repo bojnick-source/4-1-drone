@@ -1,7 +1,13 @@
 #pragma once
 // ============================================================================
-// BEMT Uncertainty Runner - Monte Carlo uncertainty quantification
+// BEMT Uncertainty Runner Data Structures
 // File: cpp/engine/physics/bemt_uncertainty_runner.hpp
+// ============================================================================
+//
+// Purpose:
+// - Define data structures for uncertainty quantification results.
+// - Used by stats_report_csv to serialize uncertainty summaries.
+//
 // ============================================================================
 
 #include <string>

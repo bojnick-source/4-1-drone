@@ -1,11 +1,17 @@
 #pragma once
 // ============================================================================
-// Closeout Thresholds - Gate threshold definitions
+// Closeout Thresholds
 // File: cpp/engine/analysis/closeout_thresholds.hpp
+// ============================================================================
+//
+// Purpose:
+// - Define threshold configurations for closeout gating.
+// - Provide default and strict threshold sets.
+//
 // ============================================================================
 
 #include "engine/analysis/closeout_types.hpp"
-#include "engine/core/errors.hpp"
+
 #include <string>
 
 namespace lift::analysis {

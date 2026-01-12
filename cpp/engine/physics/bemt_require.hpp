@@ -1,12 +1,17 @@
 #pragma once
 // ============================================================================
-// BEMT Require - Exception handling for BEMT subsystem
+// BEMT Requirements and Error Handling
 // File: cpp/engine/physics/bemt_require.hpp
+// ============================================================================
+//
+// Purpose:
+// - Provide error codes and exception types for BEMT uncertainty analysis.
+// - Consistent with existing lift::LiftError hierarchy.
+//
 // ============================================================================
 
 #include "engine/core/errors.hpp"
 
-#include <cstdint>
 #include <string>
 #include <stdexcept>
 

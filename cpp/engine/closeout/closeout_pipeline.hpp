@@ -1,11 +1,14 @@
 #pragma once
 // ============================================================================
-// Closeout Pipeline - Main closeout evaluation orchestration
+// Closeout Pipeline
 // File: cpp/engine/closeout/closeout_pipeline.hpp
 // ============================================================================
-
-#include "engine/analysis/closeout_types.hpp"
-#include "engine/analysis/closeout_thresholds.hpp"
+//
+// Purpose:
+// - Define input/output structures for closeout pipeline.
+// - Minimal working skeleton for compilation.
+//
+// ============================================================================
 
 #include <string>
 #include <vector>
