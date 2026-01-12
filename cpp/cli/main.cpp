@@ -1,5 +1,4 @@
 /*
-================================================================================
 Fragment 1.0 — CLI: Main Entry Point (lift_cli)
 FILE: cpp/cli/main.cpp
 
@@ -26,7 +25,6 @@ Hardening:
   - Explicit error codes for CI integration
   - No silent failures
   - Deterministic output format
-================================================================================
 */
 
 #include "engine/core/design.hpp"
@@ -259,4 +257,21 @@ int main(int argc, char** argv) {
   std::cerr << "Unknown command: " << cmd << "\n";
   std::cerr << "Run 'lift_cli help' for usage information.\n";
   return ExitCode::INVALID_ARGS;
+// ============================================================================
+// Lift CLI - Minimal harness for testing engine components
+// File: cpp/cli/main.cpp
+// ============================================================================
+
+#include <iostream>
+
+int main(int argc, char** argv) {
+    std::cout << "lift_cli - minimal engine harness\n";
+    std::cout << "Usage: lift_cli [options]\n";
+    std::cout << "\nThis is a placeholder CLI tool.\n";
+    
+    if (argc > 1) {
+        std::cout << "Received " << (argc - 1) << " arguments\n";
+    }
+    
+    return 0;
 }

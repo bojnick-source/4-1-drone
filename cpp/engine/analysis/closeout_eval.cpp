@@ -21,10 +21,6 @@ static inline void add_fail(std::vector<std::string>& v, const std::string& s) {
   v.push_back(s);
 }
 
-bool is_set(double x) {
-  return !std::isnan(x) && std::isfinite(x);
-}
-
 static inline double nan_sum(double a, double b) {
   if (!is_set(a)) return b;
   if (!is_set(b)) return a;

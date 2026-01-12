@@ -32,6 +32,11 @@ add_library(lift_engine
   # Optimization
   cpp/engine/optimization/candidate_generator.cpp
   cpp/engine/optimization/objective.cpp
+  cpp/engine/physics/stats_report_csv.cpp
+  # Analysis
+  cpp/engine/analysis/closeout_eval.cpp
+  cpp/engine/analysis/closeout_json.cpp
+  cpp/engine/analysis/closeout_report_csv.cpp
 )
 
 target_include_directories(lift_engine PUBLIC
@@ -58,3 +63,9 @@ add_executable(optimizer_demo
 )
 
 target_link_libraries(optimizer_demo PRIVATE lift_engine)
+# ---- CLI: closeout_cli (Closeout tool with CSV outputs) ----
+add_executable(closeout_cli
+  cpp/tools/closeout_cli.cpp
+)
+
+target_link_libraries(closeout_cli PRIVATE lift_engine)

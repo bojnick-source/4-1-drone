@@ -14,10 +14,6 @@ FILE: cpp/engine/analysis/closeout_json.cpp
 
 namespace lift {
 
-static inline bool is_set(double x) {
-  return std::isfinite(x);
-}
-
 static std::string json_escape(const std::string& s) {
   std::ostringstream o;
   o << '"';
