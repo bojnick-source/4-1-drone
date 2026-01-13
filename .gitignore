@@ -1,3 +1,15 @@
+# Build directories
+build/
+build-*/
+
+# CMake
+CMakeCache.txt
+CMakeFiles/
+cmake_install.cmake
+Makefile
+*.cmake
+
+# Compiled binaries
 # Build artifacts
 build/
 _codeql_build_dir/
@@ -6,6 +18,11 @@ _codeql_detected_source_root
 *.a
 *.so
 *.dylib
+*.exe
+lift_cli
+closeout_demo
+
+# IDE
 *.dll
 *.exe
 
@@ -22,6 +39,17 @@ Makefile
 *.swo
 *~
 
+# Generated files
+*.json
+*.csv
+*.log
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.pytest_cache/
+venv/
 # Python artifacts
 __pycache__/
 *.py[cod]
